@@ -6,7 +6,8 @@ root = Tk()
 root.title("Simple Stock/Coin Price Viewer")
 
 # getPrice(): gets user input from input field and trys to get
-#           price of stock
+#             price of stock, returns price of stock/coin or
+#             outputs error if stock/coin cannot be found
 def getPrice(event=None):
     try:
         data = si.get_live_price(input.get())
@@ -34,11 +35,11 @@ input.grid(row=0, column=1)
 
 # Clear button that clears input and label
 clear = Button(root, text="Clear", command=clear, padx=12)
-clear.bind("<Return>", clear)
 clear.grid(row=2, column=0)
 
 # Label to dispaly price of stock
 price = Label(root, text="")
 price.grid(row=2, column=1, columnspan=1)
+
 
 root.mainloop()
